@@ -1,15 +1,15 @@
-html, body {
-    margin: 0px;
-    background: salmon;
+html,
+body {
+	margin: 0px;
 }
 
 div.container {
-    padding-bottom: 100vh;
+	padding-bottom: 100vh;
 }
 
 div.square {
-    width: 100px;
-    height: 100px;
-    background: darkslateblue;
-    margin-top: 50vh;
+	width: 100px;
+	height: 100px;
+	background: darkslateblue;
+	margin-top: 50vh;
 }

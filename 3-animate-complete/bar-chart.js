@@ -1,25 +1,15 @@
 function BarChart() {
 
-    // function to set data for a barchart variable
-    // the data with which we want to draw the bar-chart
+    // function to set data for a barchart
     this.data = function (data) {
         if (arguments.length > 0) {
             // check if there are any arguments to the function
             this._data = data;
             return this;
         }
-        // if there are no arguments to the function
-        // return the dataset already bound to the variable/instance
         return this._data;
-
-        // WHY DO WE DO THIS?
-        // this is done to achieve something similar to d3
-        // d3.selectAll('rect').data(dataArray) -> binds the dataArray to selection and returns this
-        // d3.selectAll('rect').data() -> returns the dataset the selection is bound to
     }
 
-    // function to set SELECTION for a barchart variable
-    // this is the SVG element into which we will draw the barchart
     this.selection = function (sel) {
         if (arguments.length > 0) {
             // check if there are any arguments to the function
@@ -29,7 +19,6 @@ function BarChart() {
         return this._sel;
     }
 
-    // function to set the SIZE for a barchart
     this.size = function (size) {
         if (arguments.length > 0) {
             // check if there are any arguments to the function
@@ -41,7 +30,6 @@ function BarChart() {
 
             // internally use this variable for calculations
             // only within this file
-            // this calculates the size of the chart once, and stores it for later use
             this._chartSize = {
                 w: this._size.w - this._margin.l - this._margin.r,
                 h: this._size.h - this._margin.t - this._margin.b
@@ -52,7 +40,6 @@ function BarChart() {
         return this._size;
     }
 
-    // function to set the MARGIN around the chart
     this.margin = function (margin) {
         if (arguments.length > 0) {
             this._margin = margin;
@@ -70,7 +57,6 @@ function BarChart() {
         return this._filterState;
     }
 
-    // this actually draws the bar chart
     this.draw = function () {
         let filteredData = this._data.filter(d => d.state === this._filterState);
 
@@ -159,9 +145,8 @@ function BarChart() {
         if (arguments.length > 0) {
             this._dispatch = dispatch;
 
+            // when we receive an event which changes the state
             this._dispatch.on('changeState', (state) => {
-                // when we receive an event which changes the state
-                // this callback function within the dispatch is called
                 this.filterState(state)
                     .draw();
             })

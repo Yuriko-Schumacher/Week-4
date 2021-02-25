@@ -1,19 +1,19 @@
-html, body {
-    margin: 0px;
-    background: salmon;
+html,
+body {
+	margin: 0px;
+	/* background: salmon; */
 }
 
 div.container {
-    padding-bottom: 100vh;
+	padding-bottom: 100vh;
 }
 
 div.square {
-    width: 100px;
-    height: 100px;
-    background: darkslateblue;
-    margin-top: 50vh;
-    padding: 20px;
-    font-family: sans-serif;
-    font-size: 30px;
-
+	width: 100px;
+	height: 100px;
+	background: darkslateblue;
+	margin-top: 50vh;
+	padding: 20px;
+	font-family: sans-serif;
+	font-size: 30px;
 }

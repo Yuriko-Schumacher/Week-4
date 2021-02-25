@@ -13,7 +13,6 @@ function ScrollActions () {
     this.addScrollTriggers = function () {
 
         // TO PIN THE BAR CHART
-        // so that annotations can start scrolling over the chart
         gsap.to('#annotation-container', {
             scrollTrigger: {
                 trigger: '#annotation-container',
@@ -26,20 +25,14 @@ function ScrollActions () {
             }
         });
 
-        // selecting all annotations
-        // refer: index.html to see what elements have the class 'annotation'
         let elements = document.getElementsByClassName('annotation');
         elements = Array.from(elements);
 
 
+
         elements.forEach((ele, i) => {
-            // getting id for each annotation
             let eleId = ele.getAttribute('id');
 
-            // adding triggers to each annotaton
-            // so we can update the bar-chart
-            // as per a certain annotation
-            // whether we scroll up (onEnter) or down (onLeave)
             gsap.to(`#${eleId}`, {
                 scrollTrigger: {
                     trigger: `#${eleId}`,
